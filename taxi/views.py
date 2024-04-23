@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic import DetailView
 
 from taxi.models import Driver, Car, Manufacturer
 
@@ -26,3 +27,8 @@ class CarListView(generic.ListView):
     model = Car
     queryset = Car.objects.select_related("manufacturer")
     paginate_by = 5
+
+
+class CarDetailView(DetailView):
+    model = Car
+
